@@ -5,8 +5,17 @@ import { Provider } from "react-redux";
 import ReduxThunk from "redux-thunk";
 
 import placesReducer from "./store/places-reducer";
-
 import PlacesNavigator from "./navigation/PlacesNavigator";
+import { init } from "./utils/db";
+
+// init sqlite database
+init()
+  .then(() => {
+    console.log("sqlite db initialized");
+  })
+  .catch((err) => {
+    console.log("Error initializing sqlite db: " + err);
+  });
 
 const rootReducer = combineReducers({
   places: placesReducer,
