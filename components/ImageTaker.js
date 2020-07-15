@@ -62,6 +62,7 @@ const ImageTaker = (props) => {
 const styles = StyleSheet.create({
   imagePicker: {
     alignContent: "center",
+    marginVertical: 4,
   },
   imagePreview: {
     width: "100%",

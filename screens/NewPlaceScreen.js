@@ -14,6 +14,7 @@ import Colors from "../constants/Colors";
 
 import * as placesActions from "../store/places-action";
 import ImageTaker from "../components/ImageTaker";
+import LocationPicker from "../components/LocationPicker";
 
 const NewPlaceScreen = (props) => {
   const [titleValue, setTitleValue] = useState("");
@@ -44,6 +45,7 @@ const NewPlaceScreen = (props) => {
           value={titleValue}
         />
         <ImageTaker onImageTaken={imageTakenHandler} />
+        <LocationPicker />
         <Button
           title='Save'
           color={Colors.primary}
