@@ -11,6 +11,7 @@ import * as Location from "expo-location";
 import * as Permissions from "expo-permissions";
 
 import Colors from "../constants/Colors";
+import MapPreview from "./MapPreview";
 
 const LocationPicker = (props) => {
   const [pickedLocation, setPickedLocation] = useState();
@@ -46,8 +47,8 @@ const LocationPicker = (props) => {
       });
 
       setPickedLocation({
-        lat: location.coords.lat,
-        long: location.coords.longitude,
+        lat: location.coords.latitude,
+        lng: location.coords.longitude,
       });
     } catch (err) {
       Alert.alert(
@@ -62,13 +63,13 @@ const LocationPicker = (props) => {
 
   return (
     <View style={styles.locationPicker}>
-      <View style={styles.mapPreview}>
+      <MapPreview style={styles.mapPreview} location={pickedLocation}>
         {isFetchingLocation ? (
           <ActivityIndicator size='small' color={Colors.primary} />
         ) : (
           <Text style={styles.statusText}>No location picked yet</Text>
         )}
-      </View>
+      </MapPreview>
       <Button
         title='Get User Location'
         color={Colors.primary}
@@ -87,8 +88,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 180,
     marginBottom: 10,
-    justifyContent: "center",
-    alignContent: "center",
+
     borderEndColor: Colors.lightGray,
     borderWidth: 1,
     overflow: "hidden",
