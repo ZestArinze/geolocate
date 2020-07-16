@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet, Image } from "react-native";
-import env from "../env";
+import env from "../secret/env";
 
 const MapPreview = (props) => {
   let mapPrevieUrl;
