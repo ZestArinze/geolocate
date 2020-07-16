@@ -1,7 +1,5 @@
 const { exp } = require("react-native-reanimated");
 
-const vars = {
-  googleMapApiKey: "AIzaSyDlcWaDD7om8s0zysnUOsSAQOMKUhKfVA0",
-};
+const vars = {};
 
 export default vars;
